@@ -670,7 +670,7 @@ exit:
 static struct usb_serial_driver *search_serial_device(
 					struct usb_interface *iface)
 {
-	const struct usb_device_id *id = NULL
+	const struct usb_device_id *id = NULL;
 	struct usb_serial_driver *drv;
 	struct usb_driver *driver = to_usb_driver(iface->dev.driver);
 
