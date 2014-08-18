@@ -128,7 +128,7 @@ static int msm_cpufreq_target(struct cpufreq_policy *policy,
 	int ret = -EFAULT;
 	int index;
 	struct cpufreq_frequency_table *table;
-	int i, old_index = INT_MAX
+	int i, old_index = INT_MAX;
 	static int print_err = 0; /*KERNEL-SC-cpu-frequency-02+*/
 
 	struct cpufreq_work_struct *cpu_work = NULL;
