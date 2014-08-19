@@ -27,6 +27,11 @@ config FB_MSM_LOGO
 	---help---
 	  Show /initlogo.rle during boot.
 
+config FB_MSM_LCD_NOTIFY
+	depends on FB_MSM_MIPI_DSI_LGIT
+	bool "Simple LCD power on/off wrapper"
+	default n
+
 config FB_MSM_LCDC_HW
 	bool
 	default n
