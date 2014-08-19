@@ -84,7 +84,6 @@ static struct msm_bus_paths bw_level_tbl[] __initdata = {
 	[2] = BW_MBPS(1600), /* At least 200 MHz on bus. */
 	[3] = BW_MBPS(2128), /* At least 266 MHz on bus. */
 	[4] = BW_MBPS(3200), /* At least 400 MHz on bus. */
-	[5] = BW_MBPS(3936), /* At least 492 MHz on bus. */
 };
 
 static struct msm_bus_scale_pdata bus_scale_data __initdata = {
@@ -95,33 +94,24 @@ static struct msm_bus_scale_pdata bus_scale_data __initdata = {
 };
 
 static struct l2_level l2_freq_tbl[] __initdata = {
-	[0]  = { {  162000, PLL_8, 0, 0x00 },  LVL_LOW, 1050000, 1 },
-	[1]  = { {  384000, PLL_8, 0, 0x08 },  LVL_LOW, 1050000, 1 },
-	[2]  = { {  432000, HFPLL, 2, 0x20 },  LVL_NOM, 1050000, 1 },
-	[3]  = { {  486000, HFPLL, 2, 0x24 },  LVL_NOM, 1050000, 1 },
-	[4]  = { {  540000, HFPLL, 2, 0x28 },  LVL_NOM, 1050000, 2 },
-	[5]  = { {  594000, HFPLL, 1, 0x16 },  LVL_NOM, 1050000, 2 },
-	[6]  = { {  648000, HFPLL, 1, 0x18 },  LVL_NOM, 1050000, 2 },
-	[7]  = { {  702000, HFPLL, 1, 0x1A },  LVL_NOM, 1050000, 3 },
-	[8]  = { {  756000, HFPLL, 1, 0x1C }, LVL_HIGH, 1150000, 3 },
-	[9]  = { {  810000, HFPLL, 1, 0x1E }, LVL_HIGH, 1150000, 3 },
-	[10] = { {  864000, HFPLL, 1, 0x20 }, LVL_HIGH, 1150000, 4 },
-	[11] = { {  918000, HFPLL, 1, 0x22 }, LVL_HIGH, 1150000, 4 },
-	[12] = { {  972000, HFPLL, 1, 0x24 }, LVL_HIGH, 1150000, 4 },
-	[13] = { { 1026000, HFPLL, 1, 0x26 }, LVL_HIGH, 1150000, 5 },
-	[14] = { { 1080000, HFPLL, 1, 0x28 }, LVL_HIGH, 1150000, 5 },
-	[15] = { { 1134000, HFPLL, 1, 0x2A }, LVL_HIGH, 1150000, 5 },
-	[16] = { { 1188000, HFPLL, 1, 0x2C }, LVL_HIGH, 1150000, 5 },
-	[17] = { { 1242000, HFPLL, 1, 0x2E }, LVL_HIGH, 1150000, 5 },
-	[18] = { { 1296000, HFPLL, 1, 0x30 }, LVL_HIGH, 1150000, 5 },
-	[19] = { { 1350000, HFPLL, 1, 0x32 }, LVL_HIGH, 1150000, 5 },
+	[0]  = { {  384000, PLL_8, 0, 0x00 },  LVL_NOM, 1050000, 1 },
+	[1]  = { {  432000, HFPLL, 2, 0x20 },  LVL_NOM, 1050000, 1 },
+	[2]  = { {  486000, HFPLL, 2, 0x24 },  LVL_NOM, 1050000, 1 },
+	[3]  = { {  540000, HFPLL, 2, 0x28 },  LVL_NOM, 1050000, 2 },
+	[4]  = { {  594000, HFPLL, 1, 0x16 },  LVL_NOM, 1050000, 2 },
+	[5]  = { {  648000, HFPLL, 1, 0x18 },  LVL_NOM, 1050000, 2 },
+	[6]  = { {  702000, HFPLL, 1, 0x1A },  LVL_NOM, 1050000, 3 },
+	[7]  = { {  756000, HFPLL, 1, 0x1C }, LVL_HIGH, 1150000, 3 },
+	[8]  = { {  810000, HFPLL, 1, 0x1E }, LVL_HIGH, 1150000, 3 },
+	[9]  = { {  864000, HFPLL, 1, 0x20 }, LVL_HIGH, 1150000, 4 },
+	[10] = { {  918000, HFPLL, 1, 0x22 }, LVL_HIGH, 1150000, 4 },
+	[11] = { {  972000, HFPLL, 1, 0x24 }, LVL_HIGH, 1150000, 4 },
 	{ }
 };
 
 /* TODO: Update core voltages when data is available. */
 static struct acpu_level acpu_freq_tbl[] __initdata = {
-	{ 1, {   162000, PLL_8, 2, 0x00 }, L2(0),   900000 },
-	{ 1, {   384000, PLL_8, 0, 0x08 }, L2(0),   900000 },
+	{ 1, {   384000, PLL_8, 0, 0x00 }, L2(0),   900000 },
 	{ 1, {   432000, HFPLL, 2, 0x20 }, L2(4),   925000 },
 	{ 1, {   486000, HFPLL, 2, 0x24 }, L2(4),   925000 },
 	{ 1, {   540000, HFPLL, 2, 0x28 }, L2(4),   937500 },
@@ -133,14 +123,6 @@ static struct acpu_level acpu_freq_tbl[] __initdata = {
 	{ 1, {   864000, HFPLL, 1, 0x20 }, L2(11), 1062500 },
 	{ 1, {   918000, HFPLL, 1, 0x22 }, L2(11), 1087500 },
 	{ 1, {   972000, HFPLL, 1, 0x24 }, L2(11), 1100000 },
-	{ 1, {  1026000, HFPLL, 1, 0x26 }, L2(11), 1125000 },
-	{ 1, {  1134000, HFPLL, 1, 0x2A }, L2(16), 1175000 },
-	{ 1, {  1242000, HFPLL, 1, 0x2E }, L2(16), 1200000 },
-	{ 1, {  1350000, HFPLL, 1, 0x32 }, L2(16), 1225000 },
-	{ 1, {  1458000, HFPLL, 1, 0x36 }, L2(16), 1237500 },
-	{ 1, {  1512000, HFPLL, 1, 0x3A }, L2(16), 1250000 },
-	{ 1, {  1674000, HFPLL, 1, 0x3E }, L2(19), 1500000 },
-	{ 1, {  1728000, HFPLL, 1, 0x40 }, L2(19), 1500000 },
 	{ 0, { 0 } }
 };
 
@@ -159,7 +141,7 @@ static struct acpuclk_krait_params acpuclk_8627_params __initdata = {
 	.l2_freq_tbl_size = sizeof(l2_freq_tbl),
 	.bus_scale = &bus_scale_data,
 	.pte_efuse_phys = 0x007000C0,
-	.stby_khz = 162000,
+	.stby_khz = 384000,
 };
 
 static int __init acpuclk_8627_probe(struct platform_device *pdev)
